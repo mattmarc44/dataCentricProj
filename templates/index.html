@@ -8,5 +8,17 @@
 </head>
 <body>
     <h1>poo</h1>
+    <p>
+        {% for movie in movies %}
+            {{movie.movie_name}}
+            {{movie.genre}}
+            {{movie.movie_description}}
+            {{movie.movie_name}}
+            {{movie.release_date}}
+            {{movie.rating}}
+            {{movie.director}}
+            {{movie.run_time}}
+        {% endfor %}
+    </p>
 </body>
 </html>

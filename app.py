@@ -8,7 +8,7 @@ db_user = os.environ.get('DB_USER')
 db_pass = os.environ.get('DB_PASS')
 
 app.config["MONGO_DBNAME"] = 'movie_reviews'
-app.config["MONGO_URI"] = 'mongodb+srv://' + db_user + ':' + db_pass + '@clustertitmuss-8wiik.mongodb.net/movie_reviews?retryWrites=true&w=majority'
+app.config["MONGO_URI"] = 'mongodb+srv://{}:{}@clustertitmuss-8wiik.mongodb.net/movie_reviews?retryWrites=true&w=majority'.format(db_user, db_pass)
 
 mongo = PyMongo(app)
 

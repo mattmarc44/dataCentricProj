@@ -1,14 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{page_title}}</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{page_title}}</title>
+
+  <!--fonts-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--materialise and styling-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!--jquery-->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <h1>poo</h1>
-    {% block content %}
-    {% endblock %}
+
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Tapes</a>
+      <a href="#" data-target="burger" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Home</a></li>
+        <li><a href="badges.html">Genres</a></li>
+        <li><a href="collapsible.html">Add Film</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!--hamburger options-->
+  <ul class="sidenav" id="burger">
+    <li><a href="sass.html">Home</a></li>
+    <li><a href="badges.html">Genres</a></li>
+    <li><a href="collapsible.html">Add Film</a></li>
+  </ul>
+
+  <h1>poo</h1>
+  {% block content %}
+  {% endblock %}
 </body>
+<!--materialise initiations-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="../static/js/materialiseInits.js"></script>
+
 </html>

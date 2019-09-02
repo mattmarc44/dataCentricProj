@@ -17,5 +17,8 @@ mongo = PyMongo(app)
 def get_movies():
     return render_template('index.html', movies=mongo.db.movies.find(), page_title='Home')
 
+@app.route('/add_movie')
+def add_movie():
+    return render_template('add_movie.html', page_title='Add Movie')
 
 app.run(host=os.getenv('IP', "0.0.0.0"), port=int(os.getenv('PORT', "5000")), debug=True)

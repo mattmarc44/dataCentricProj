@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>test</h2>
+<div class="row">
+    <form class="col s12">
+        <div class="row">
+            <div class="input-field col s6">
+                <input placeholder="Placeholder" id="movie_name" type="text" class="validate">
+                <label for="movie_name">Movie Name</label>
+            </div>
+            <div class="input-field col s6">
+                <select class="select">
+                    <option value="" disabled selected>Choose a genre</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Horror">Horror</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Action">Action</option>
+                </select>
+                <label>Genre</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-description col s12">
+                <h5>Short Film Description</h5>
+                <p>Use This field to give a brief description of the film before giving a full plot synopsis.</p>
+            </div>
+            <div class="input-field col s12">
+                <input placeholder="Placeholder" id="short_description" type="text" class="validate">
+                <label for="short_description">Short Film Description</label>
+            </div>
+            <div class="form-description col s12">
+                <h5>Full Film Description</h5>
+                <p>Use This field to give a full description of the film remembering to avoid any spoilers!</p>
+            </div>
+            <div class="input-field col s12">
+                <input placeholder="Placeholder" id="full_description" type="text" class="validate">
+                <label for="full_description">Full Film Description</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="release_date" type="text" class="datepicker">
+                <label for="release_date">Release Date</label>
+            </div>
+            <div class="input-field col s6">
+                <input placeholder="Placeholder" id="director" type="text" class="validate">
+                <label for="director">Director</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <p class="range-field">
+                    <input type="range" id="test5" min="0" max="300" />
+                </p>
+                <label class="active" for="run_time">Run Time (minutes)</label>
+            </div>
+            <div class="input-field col s6">
+                <p class="range-field">
+                    <input type="range" id="test5" min="0" max="5" />
+                </p>
+                <label class="active" for="run_time">Rating</label>
+            </div>
+
+            <div class="col s6 offset-s9">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+
+        </div>
+    </form>
+</div>
+{% endblock %}

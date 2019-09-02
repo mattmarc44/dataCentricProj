@@ -2,14 +2,31 @@
 {% block content %}
 <p>
     {% for movie in movies %}
-        {{movie.movie_name}}
-        {{movie.genre}}
-        {{movie.movie_description}}
-        {{movie.movie_name}}
-        {{movie.release_date}}
-        {{movie.rating}}
-        {{movie.director}}
-        {{movie.run_time}}
+    
+    <div class="row">
+        <div class="col s12 m7">
+            <div class="card">
+                <div class="card-image">
+                    <img src="../static/images/test.svg">
+                    <span class="card-title">{{movie.movie_name}}</span>
+                </div>
+                <div class="card-content">
+                    <p>{{movie.movie_description}}</p>
+                </div>
+                <div class="card-action">
+                    <a href="#">see more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     {% endfor %}
 </p>
 {% endblock %}
+<!-- UNUSED AS YET
+    {{movie.movie_description}}
+{{movie.genre}}
+{{movie.release_date}}
+{{movie.rating}}
+{{movie.director}}
+{{movie.run_time}} -->

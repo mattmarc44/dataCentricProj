@@ -11,7 +11,8 @@
                     <span class="card-title">{{movie.movie_name}}</span>
                 </div>
                 <div class="card-content">
-                    <p>{{movie.movie_description}}</p>
+                    <p><strong>genre: </strong>{{movie.genre}}</p><br>
+                    <p>{{movie.short_description}}</p>
                 </div>
                 <div class="card-action">
                     <a href="#">see more</a>
@@ -24,7 +25,7 @@
 </p>
 {% endblock %}
 <!-- UNUSED AS YET
-    {{movie.movie_description}}
+    {{movie.full_description}}
 {{movie.genre}}
 {{movie.release_date}}
 {{movie.rating}}

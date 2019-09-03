@@ -2,19 +2,19 @@
 {% block content %}
 <h2>test</h2>
 <div class="row">
-    <form class="col s12">
+    <form action="{{ url_for('insert_movie') }}" method="POST" class="col s12">
         <div class="row">
             <div class="input-field col s6">
-                <input placeholder="Placeholder" id="movie_name" type="text" class="validate">
+                <i class="material-icons prefix">camera_roll</i>
+                <input placeholder="Placeholder" id="movie_name" name="movie_name" type="text" class="validate">
                 <label for="movie_name">Movie Name</label>
             </div>
             <div class="input-field col s6">
-                <select class="select">
+                <select id="genre" name="genre" class="select">
                     <option value="" disabled selected>Choose a genre</option>
-                    <option value="Comedy">Comedy</option>
-                    <option value="Horror">Horror</option>
-                    <option value="Romance">Romance</option>
-                    <option value="Action">Action</option>
+                    {% for item in genres %}
+                    <option value="{{item.genre}}">{{item.genre}}</option>
+                    {% endfor %}
                 </select>
                 <label>Genre</label>
             </div>
@@ -25,7 +25,8 @@
                 <p>Use This field to give a brief description of the film before giving a full plot synopsis.</p>
             </div>
             <div class="input-field col s12">
-                <input placeholder="Placeholder" id="short_description" type="text" class="validate">
+                <i class="material-icons prefix">chat</i>
+                <input placeholder="Placeholder" id="short_description" name="short_description" type="text" class="validate">
                 <label for="short_description">Short Film Description</label>
             </div>
             <div class="form-description col s12">
@@ -33,40 +34,47 @@
                 <p>Use This field to give a full description of the film remembering to avoid any spoilers!</p>
             </div>
             <div class="input-field col s12">
-                <input placeholder="Placeholder" id="full_description" type="text" class="validate">
+                <i class="material-icons prefix">chat</i>
+                <input placeholder="Placeholder" id="full_description" name="full_description" type="text" class="validate">
                 <label for="full_description">Full Film Description</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="release_date" type="text" class="datepicker">
+                <i class="material-icons prefix">today</i>
+                <input id="release_date" name="release_date" type="text" class="datepicker">
                 <label for="release_date">Release Date</label>
-            </div>
-            <div class="input-field col s6">
-                <input placeholder="Placeholder" id="director" type="text" class="validate">
-                <label for="director">Director</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s6">
                 <p class="range-field">
-                    <input type="range" id="test5" min="0" max="300" />
+                    <i class="material-icons prefix">timer</i>
+                    <input type="range" id="run_time" name="run_time" min="0" max="300" />
                 </p>
                 <label class="active" for="run_time">Run Time (minutes)</label>
             </div>
             <div class="input-field col s6">
                 <p class="range-field">
-                    <input type="range" id="test5" min="0" max="5" />
+                    <i class="material-icons prefix">local_play</i>
+                    <input type="range" id="rating" name="rating" min="0" max="5" />
                 </p>
-                <label class="active" for="run_time">Rating</label>
+                <label class="active" for="rating">Rating</label>
             </div>
-
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">movie_creation</i>
+                <input placeholder="Placeholder" id="director" name="director" type="text" class="validate">
+                <label for="director">Director</label>
+            </div>
+        </div>
+        <div class="row">
             <div class="col s6 offset-s9">
                 <button class="btn waves-effect waves-light" type="submit" name="action">Submit
                     <i class="material-icons right">send</i>
                 </button>
             </div>
-
         </div>
     </form>
 </div>

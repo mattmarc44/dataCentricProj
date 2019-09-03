@@ -26,5 +26,10 @@ def insert_movie():
     mongo.db.movies.insert_one(request.form.to_dict())
     return redirect(url_for('get_movies'))
 
+@app.route('/movie_page/<movie_id>')
+def movie_page(movie_id):
+    selected_movie = mongo.db.movies.find_one({"_id": ObjectId(movie_id)})
+    # all_genres = mongo.db.genres.find()
+    return render_template('movie_page.html', movie=selected_movie)
 
 app.run(host=os.getenv('IP', "0.0.0.0"), port=int(os.getenv('PORT', "5000")), debug=True)

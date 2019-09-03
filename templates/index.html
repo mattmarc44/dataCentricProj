@@ -15,7 +15,7 @@
                     <p>{{movie.short_description}}</p>
                 </div>
                 <div class="card-action">
-                    <a href="#">see more</a>
+                    <a href="{{ url_for('movie_page', movie_id=movie._id) }}">see more</a>
                 </div>
             </div>
         </div>
@@ -24,10 +24,3 @@
     {% endfor %}
 </p>
 {% endblock %}
-<!-- UNUSED AS YET
-    {{movie.full_description}}
-{{movie.genre}}
-{{movie.release_date}}
-{{movie.rating}}
-{{movie.director}}
-{{movie.run_time}} -->

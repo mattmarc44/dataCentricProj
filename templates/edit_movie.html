@@ -1,20 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>Add A Film</h2>
+<h2>Edit {{movie.movie_name}}</h2>
 <div class="row">
-    <form action="{{ url_for('insert_movie') }}" method="POST" class="col s12">
+    <form action="{{ url_for('update_movie', movie_id=movie._id) }}" method="POST" class="col s12">
         <div class="row">
             <div class="input-field col s6">
                 <i class="material-icons prefix">camera_roll</i>
-                <input placeholder="Placeholder" id="movie_name" name="movie_name" type="text" class="validate">
+                <input placeholder="Placeholder" id="movie_name" name="movie_name" type="text" class="validate" value="{{movie.movie_name}}">
                 <label for="movie_name">Movie Name</label>
             </div>
             <div class="input-field col s6">
-                <!--select element populated via jinja for loop-->
                 <select id="genre" name="genre" class="select">
                     <option value="" disabled selected>Choose a genre</option>
+                    <!--select element populated via jinja for loop-->
                     {% for item in genres %}
-                    <option value="{{item.genre}}">{{item.genre}}</option>
+                        <!--preselects this films genre-->
+                        {% if item.genre == movie.genre %}
+                        <option value="{{item.genre}}" selected>{{item.genre}}</option>
+                        {% else %}
+                        <option value="{{item.genre}}">{{item.genre}}</option>
+                        {% endif %}
                     {% endfor %}
                 </select>
                 <label>Genre</label>
@@ -27,7 +32,7 @@
             </div>
             <div class="input-field col s12">
                 <i class="material-icons prefix">chat</i>
-                <input placeholder="Placeholder" id="short_description" name="short_description" type="text" class="validate">
+                <input placeholder="Placeholder" id="short_description" name="short_description" type="text" class="validate" value="{{movie.short_description}}">
                 <label for="short_description">Short Film Description</label>
             </div>
             <div class="form-description col s12">
@@ -36,14 +41,14 @@
             </div>
             <div class="input-field col s12">
                 <i class="material-icons prefix">chat</i>
-                <input placeholder="Placeholder" id="full_description" name="full_description" type="text" class="validate">
+                <input placeholder="Placeholder" id="full_description" name="full_description" type="text" class="validate" value="{{movie.full_description}}">
                 <label for="full_description">Full Film Description</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">today</i>
-                <input id="release_date" name="release_date" type="text" class="datepicker">
+                <input id="release_date" name="release_date" type="text" class="datepicker" value="{{movie.release_date}}">
                 <label for="release_date">Release Date</label>
             </div>
         </div>
@@ -51,14 +56,14 @@
             <div class="input-field col s6">
                 <p class="range-field">
                     <i class="material-icons prefix">timer</i>
-                    <input type="range" id="run_time" name="run_time" min="0" max="300" />
+                    <input type="range" id="run_time" name="run_time" min="0" max="300" value="{{movie.run_time}}"/>
                 </p>
                 <label class="active" for="run_time">Run Time (minutes)</label>
             </div>
             <div class="input-field col s6">
                 <p class="range-field">
                     <i class="material-icons prefix">local_play</i>
-                    <input type="range" id="rating" name="rating" min="0" max="5" />
+                    <input type="range" id="rating" name="rating" min="0" max="5" value="{{movie.rating}}"/>
                 </p>
                 <label class="active" for="rating">Rating</label>
             </div>
@@ -66,14 +71,14 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">movie_creation</i>
-                <input placeholder="Placeholder" id="director" name="director" type="text" class="validate">
+                <input placeholder="Placeholder" id="director" name="director" type="text" class="validate" value="{{movie.director}}">
                 <label for="director">Director</label>
             </div>
         </div>
         <div class="row">
             <div class="col s6 offset-s9">
-                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                    <i class="material-icons right">send</i>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Edit
+                    <i class="material-icons right">create</i>
                 </button>
             </div>
         </div>

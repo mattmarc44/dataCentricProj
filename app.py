@@ -53,6 +53,11 @@ def update_movie(movie_id):
     })
     return redirect(url_for('get_movies'))
 
+@app.route('/delete_movie/<movie_id>')
+def delete_movie(movie_id):
+    mongo.db.movies.remove({'_id': ObjectId(movie_id)})
+    return redirect(url_for('get_movies'))
+
 @app.route('/movie_page/<movie_id>')
 #returns a page specific for a chosen movie
 def movie_page(movie_id):

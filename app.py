@@ -54,6 +54,7 @@ def update_movie(movie_id):
     return redirect(url_for('get_movies'))
 
 @app.route('/delete_movie/<movie_id>')
+#deletes a movie depending on the movie page you are on
 def delete_movie(movie_id):
     mongo.db.movies.remove({'_id': ObjectId(movie_id)})
     return redirect(url_for('get_movies'))
@@ -63,5 +64,18 @@ def delete_movie(movie_id):
 def movie_page(movie_id):
     selected_movie = mongo.db.movies.find_one({"_id": ObjectId(movie_id)})
     return render_template('movie_page.html', movie=selected_movie)
+
+
+#GENRE
+#search by genre 
+@app.route('/get_genres')
+def get_genres():
+    return render_template('genres.html', genres=mongo.db.genres.find())
+
+@app.route('/search/<search_id>')
+#get page of films filtered by a selection
+def search(search_id):
+    selected = mongo.db.movies.find({"genre": search_id})
+    return render_template('search_result.html', movies=selected)
 
 app.run(host=os.getenv('IP', "0.0.0.0"), port=int(os.getenv('PORT', "5000")), debug=True)

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<p>
+    {% for movie in movies %}
+    
+    <div class="row">
+        <div class="col s12 m7">
+            <div class="card">
+                <div class="card-image">
+                    <img src="../static/images/test.svg">
+                    <span class="card-title">{{movie.movie_name}}</span>
+                </div>
+                <div class="card-content">
+                    <p><strong>genre: </strong>{{movie.genre}}</p><br>
+                    <p>{{movie.short_description}}</p>
+                </div>
+                <div class="card-action">
+                    <a href="{{ url_for('movie_page', movie_id=movie._id) }}">see more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% endfor %}
+</p>
+{% endblock %}

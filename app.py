@@ -69,6 +69,7 @@ def movie_page(movie_id):
 #GENRE
 #search by genre 
 @app.route('/get_genres')
+#gets genre list
 def get_genres():
     return render_template('genres.html', genres=mongo.db.genres.find())
 

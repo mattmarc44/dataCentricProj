@@ -25,6 +25,7 @@
       <a href="#" data-target="burger" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="{{ url_for('get_movies') }}">Home</a></li>
+        <li><a href="{{ url_for('get_genres') }}">Genres</a></li>
         <li><a href="{{ url_for('add_movie') }}">Add Film</a></li>
       </ul>
     </div>
@@ -32,6 +33,7 @@
   <!--hamburger options-->
   <ul class="sidenav" id="burger">
     <li><a href="{{ url_for('get_movies') }}">Home</a></li>
+    <li><a href="{{ url_for('get_genres') }}">Genres</a></li>
     <li><a href="{{ url_for('add_movie') }}">Add Film</a></li>
   </ul>
 

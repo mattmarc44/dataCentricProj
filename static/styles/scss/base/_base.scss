@@ -1,4 +1,13 @@
 body {
     background-color: #090000;
     font-family: $main-font;
+    //following 3lines fot materialise sticky footer
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
+
+main {
+    //following lines fot materialise sticky footer
+    flex: 1 0 auto;
+  }

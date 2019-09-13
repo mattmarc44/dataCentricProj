@@ -1,11 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
-<p>
+<div class="slate-img">
+    <div class="slate-content">
+        <h1>Tapes</h1>
+        <blockquote>welcome to tapes! Feel free to explore our collections of films and stuff. Something not there? Just add it! Seen a typo? fix it!</blockquote>  
+    </div>
+</div>
+<div>
+    <h2 class="banner">Titles</h2>
+</div>
     {% for movie in movies %}
-    
     <div class="row">
         <div class="col s12 m7">
-            <div class="card">
+            <div class="card hoverable">
                 <div class="card-image">
                     {% if movie.picture %}
                     <img src="{{movie.picture}}">
@@ -26,5 +33,4 @@
     </div>
     
     {% endfor %}
-</p>
 {% endblock %}

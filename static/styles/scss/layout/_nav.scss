@@ -1,0 +1,13 @@
+nav {
+    background-color: $primary-col;
+    height: 60px;
+    line-height: 60px;
+
+    a {
+        color: $secondary-col;
+    }
+
+    .nav-wrapper>.brand-logo{
+        @include color-sch-one();
+    }
+}

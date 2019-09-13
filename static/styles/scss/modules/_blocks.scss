@@ -1,0 +1,42 @@
+.hoverable:hover {
+    //editted from materialise
+    -webkit-box-shadow: 0 8px 17px 0 #fafafa78, 0 6px 20px 0 #fafafa78;
+    box-shadow: 0 8px 17px 0 #fafafa78, 0 6px 20px 0 #fafafa78;
+}
+
+.card {
+    .card-image .card-title {
+        color: $off-white;
+        top: 0px;
+        bottom: auto;
+        padding: 5px;
+        background-color: $text-over;
+        box-shadow: 0 4px 7px 0 $text-over, 0 3px 10px 0 $text-over;
+    }
+    
+    .card-content {
+        background-color: $primary-col;
+        color: $secondary-col;
+        border-radius: 0;
+    }
+    
+    .card-action {
+        background-color: #31040c;
+    }
+
+    .card-action:last-child {
+        border-radius: 0;
+    }
+}
+
+.card:first-child {
+    margin: 2rem 0 1rem 0;
+}
+
+.banner {
+    margin: 0;
+    color: $secondary-col;
+    background: $primary-col;
+    font-family: $main-font;
+    padding: .2rem .4rem;
+}

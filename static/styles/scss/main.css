@@ -43,22 +43,24 @@ nav a {
 }
 
 .slate-img .slate-content {
-  background-color: #000000ba;
+  background-color: #31040c;
   color: #e4dcda;
-  margin: .5rem;
   position: absolute;
-  top: 11%;
-  border: 2px solid #000000ba;
-  border-radius: 12px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .slate-img h1 {
-  margin: .4rem;
+  margin: .4rem 4rem;
+  border-radius: 10px;
+  margin: 1.4rem 1.5rem;
+  color: #e3af0b;
 }
 
 .slate-img blockquote {
   border-left: 5px solid #e4dcda;
-  margin: .4rem;
+  margin: 2rem;
+  border-radius: inherit;
 }
 
 footer ul.list-one > li {
@@ -115,6 +117,15 @@ footer a:hover {
   background: #31040c;
   font-family: "PT Serif", "Arial";
   padding: 0.5rem 1.4rem;
+}
+
+.home-btn {
+  position: relative;
+  left: 50%;
+  margin-left: -68px;
+  top: 55%;
+  color: black;
+  text-shadow: 0 0 8px black;
 }
 
 form {

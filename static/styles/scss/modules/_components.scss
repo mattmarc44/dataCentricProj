@@ -1,0 +1,14 @@
+//forms
+form {
+    background-color: $off-white;
+
+    .input-field>label {
+        color:black;
+    }
+    input[type=text]::placeholder {
+        color:$light-col;
+    }
+    input[type=range] {
+        border: 1px solid $secondary-col;
+    }
+}

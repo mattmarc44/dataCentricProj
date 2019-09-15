@@ -4,12 +4,13 @@
 <div class="row">
     <form action="{{ url_for('insert_movie') }}" method="POST" class="col s12">
         <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col s12 m6">
                 <i class="material-icons prefix">camera_roll</i>
                 <input placeholder="film name" id="movie_name" name="movie_name" type="text" class="validate">
                 <label for="movie_name">Movie Name</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col s12 m6">
+                    <i class="material-icons prefix">movie_filter</i>
                 <!--select element populated via jinja for loop-->
                 <select id="genre" name="genre" class="select">
                     <option value="" disabled selected>Choose a genre</option>
@@ -50,14 +51,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col s12 m6">
                 <p class="range-field">
                     <i class="material-icons prefix">timer</i>
                     <input type="range" id="run_time" name="run_time" min="0" max="300" />
                 </p>
                 <label class="active" for="run_time">Run Time (minutes)</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col s12 m6">
                 <p class="range-field">
                     <i class="material-icons prefix">local_play</i>
                     <input type="range" id="rating" name="rating" min="0" max="5" />

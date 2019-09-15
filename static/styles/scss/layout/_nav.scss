@@ -6,8 +6,4 @@ nav {
     a {
         color: $secondary-col;
     }
-
-    .nav-wrapper>.brand-logo{
-        @include color-sch-one();
-    }
 }

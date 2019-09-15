@@ -61,6 +61,21 @@ nav a {
   margin: .4rem;
 }
 
+footer ul.list-one > li {
+  display: inline-block;
+  margin: .8rem;
+}
+
+footer a {
+  color: #989898;
+  -webkit-transition: .5s all;
+  transition: .5s all;
+}
+
+footer a:hover {
+  color: #e3af0b;
+}
+
 .hoverable:hover {
   -webkit-box-shadow: 0 8px 17px 0 #fafafa78, 0 6px 20px 0 #fafafa78;
   box-shadow: 0 8px 17px 0 #fafafa78, 0 6px 20px 0 #fafafa78;

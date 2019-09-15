@@ -1,0 +1,13 @@
+footer{
+    ul.list-one>li{
+        display:inline-block;
+        margin: .8rem;
+    }
+    a{
+        color:#989898;
+        transition: .5s all;
+    }
+    a:hover {
+        color: $secondary-col;
+    }
+}

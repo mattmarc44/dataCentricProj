@@ -12,3 +12,25 @@ form {
         border: 1px solid $secondary-col;
     }
 }
+
+//movie pages
+.movie-container {
+    background-color:$tert-col;
+
+    p{
+        background-color: $primary-col;
+        color: $secondary-col;
+        padding: 0.7rem;
+        margin: .2rem;
+        border-radius: 4px;
+    }
+    h4{
+        font-size: 1.4rem;
+        color: #a9a9a9;
+        text-shadow: 0 0 2px #000000;
+        margin-left: 0.4rem;
+    }
+    a{
+        margin-bottom: 1.2rem;
+    }
+}

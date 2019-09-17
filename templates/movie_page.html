@@ -1,17 +1,56 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h3>{{movie.movie_name}}</h3>
-<p>{{movie.full_description}}</p>
-<p>{{movie.genre}}</p>
-<p>{{movie.release_date}}</p>
-<p>{{movie.rating}}</p>
-<p>{{movie.director}}</p>
-<p>{{movie.run_time}}</p>
 
-
-<a href="{{ url_for('edit_movie', movie_id=movie._id) }}" class="waves-effect waves-light btn-large"><i class="material-icons right">create</i>Edit</a>
-<a href="{{ url_for('delete_movie', movie_id=movie._id) }}" class="waves-effect waves-light btn-large"><i class="material-icons right">remove_circle</i>Delete</a>
-
-
+<div class="container movie-container">
+    <div class="row">
+        <div class="col s12">
+            <h2>{{movie.movie_name}}</h2>
+        </div>
+    </div>
+    <div class="row">
+            <div class="col s12">
+                    <h4>Genre</h4>
+                    <p><strong>{{movie.genre}}</strong></p>
+            </div>
+    </div>
+    <div class="row">
+        <div class="col s12 m4">
+                {% if movie.picture %}
+                <img class="responsive-img" src="{{ movie.picture }}" alt="movie image">
+                {% else %}
+                <img class="responsive-img" src="../static/images/test.svg" alt="movie image">
+                {% endif %}
+        </div>
+        <div class="col s12 m8">
+                <h4>Plot</h4>
+            <p>{{movie.full_description}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s4">
+            <h4>Directed by:</h4>
+            <p>{{movie.director}}</p>
+        </div>
+        <div class="col s4">
+            <h4>Run Time:</h4>
+            <p>{{movie.run_time}} minutes</p>
+        </div>
+        <div class="col s4">
+            <h4>Released:</h4>
+            <p>{{movie.release_date}}</p>
+        </div>
+        <div class="col s12 center">
+            <p id="star-rating">{{movie.rating}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s6 center">
+            <a href="{{ url_for('edit_movie', movie_id=movie._id) }}" class="waves-effect waves-light btn-large"><i class="material-icons right">create</i>Edit</a>
+        </div>
+        <div class="col s6 center">
+                <a href="{{ url_for('delete_movie', movie_id=movie._id) }}" class="waves-effect waves-light btn-large"><i class="material-icons right">remove_circle</i>Delete</a>
+        </div>
+    </div>
+</div>
 {% endblock %}

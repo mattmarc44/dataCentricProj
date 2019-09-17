@@ -1,7 +1,7 @@
 //colors
 $primary-col:#31040c;
 $secondary-col:#e3af0b;
-$tert-col: #5e1f24;
+$tert-col:lighten($primary-col, 5%);
 $off-white:#e4dcda;
 $text-over: #000000ba;
 $light-col:#a9a9a9;

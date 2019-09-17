@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
+<div class="row">
     {% for item in genres %}
-        <div class="row">
-            <div class="col s12">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="../static/images/{{item.genre}}.jpg" alt="{{item.genre}}">
-                        <span class="card-title">{{item.genre}}</span>
-                    </div>
-                    <div class="card-action">
-                        <a href="{{ url_for('search', search_id=item.genre) }}">Search {{item.genre}}</a>
-                    </div>
+        <div class="col s12">
+            <div class="card">
+                <div class="card-image">
+                    <img src="../static/images/{{item.genre}}.jpg" alt="{{item.genre}}">
+                    <span class="card-title">{{item.genre}}</span>
+                </div>
+                <div class="card-action">
+                    <a href="{{ url_for('search', search_id=item.genre) }}">Search {{item.genre}}</a>
                 </div>
             </div>
         </div>
     {% endfor %}
+</div>
 {% endblock %}

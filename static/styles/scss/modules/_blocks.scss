@@ -18,6 +18,10 @@
         background-color: $primary-col;
         color: $secondary-col;
         border-radius: 0;
+
+        p{
+            font-size: 1.4rem
+        }
     }
     
     .card-action {

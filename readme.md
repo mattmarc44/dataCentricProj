@@ -19,3 +19,5 @@ Photo by Skitterphoto from Pexels
 Photo by luizclas from Pexels
 Photo by Donald Tong from Pexels
 
+ text was contrast checked
+ https://webaim.org/resources/contrastchecker/

@@ -21,3 +21,5 @@ Photo by Donald Tong from Pexels
 
  text was contrast checked
  https://webaim.org/resources/contrastchecker/
+
+ pagination inspired by:https://www.youtube.com/watch?v=Lnt6JqtzM7I

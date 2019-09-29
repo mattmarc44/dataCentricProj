@@ -1,5 +1,5 @@
 import os
-from flask import Flask, redirect, render_template, url_for, request, session
+from flask import Flask, redirect, render_template, url_for, request, session, jsonify
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
@@ -16,7 +16,48 @@ mongo = PyMongo(app)
 @app.route('/get_movies')
 #Gets a list of movies and returns them on the homepage
 def get_movies():
-    return render_template('index.html', movies=mongo.db.movies.find(), page_title='Home')
+    limit = int(request.args.get('limit', 5))
+    offset = int(request.args.get('offset', 1))
+    page_num = int(request.args.get('page_num', 1))
+    #get offset with ability to be negative(for going back multiple pages)
+    jump = int(request.args.get('offset', 1))
+
+    #set defaults to avoid bad url's being made
+    if limit < 1:
+        limit = 5
+    if offset < 1:
+        offset = 1
+
+    starting_id = mongo.db.movies.find()
+    last_id = starting_id[offset]['_id']
+
+    movies = mongo.db.movies.find({'_id': {'$gte': last_id}}).limit(limit)
+    entries = mongo.db.movies.find().count()
+    length = entries / limit
+
+    output = []
+    for i in movies:
+        output.append({
+            '_id': i['_id'],
+            'movie_name': i['movie_name'],
+            'genre': i['genre'],
+            'short_description': i['short_description'],
+            'release_date': i['release_date'],
+            'rating': i['rating'],
+            'director': i['director'],
+            'run_time': i['run_time'],
+            'full_description': i['full_description'],
+            'picture': i['picture']
+            })
+
+    next_url = '/?limit=' + str(limit) + '&offset=' + str(offset + limit) + '&page_num=' + str(page_num + 1)
+    prev_url = '/?limit=' + str(limit) + '&offset=' + str(offset - limit) + '&page_num=' + str(page_num - 1)
+    current_url = '/?limit=' + str(limit) + '&offset=' + str(offset) + '&page_num=' + str(page_num)
+    page_url = '/?limit=' + str(limit) + '&offset=' + str(offset + (limit*jump)) + '&page_num=' + str(page_num + jump)
+
+    result = {'result': output, 'next_url': next_url, 'prev_url': prev_url, 'current_url': current_url, 'page_url': page_url}
+    return render_template('index.html', movies=result, length=length, page_num=page_num, page_title='Home')
+
 
 @app.route('/add_movie')
 #returns the page with a form for adding a film to the database

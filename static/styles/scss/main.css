@@ -99,6 +99,11 @@ footer a:hover {
   box-shadow: 0 8px 17px 0 #fafafa78, 0 6px 20px 0 #fafafa78;
 }
 
+.card .card-image {
+  max-height: 25rem;
+  overflow: hidden;
+}
+
 .card .card-image .card-title {
   color: #e4dcda;
   top: 0px;
@@ -197,6 +202,22 @@ form input[type=range] {
 
 .movie-container a {
   margin-bottom: 1.2rem;
+}
+
+div.col > ul.pagination {
+  padding: 1.4rem 0 0 0;
+}
+
+div.col > ul.pagination li {
+  height: 40px;
+}
+
+div.col > ul.pagination li a {
+  color: #e3af0b;
+}
+
+div.col > ul.pagination li.active {
+  padding: .5rem;
 }
 
 h2 {

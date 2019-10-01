@@ -5,13 +5,18 @@
 }
 
 .card {
-    .card-image .card-title {
+    .card-image {
+        max-height: 25rem;
+        overflow: hidden;
+
+        .card-title {
         color: $off-white;
         top: 0px;
         bottom: auto;
         padding: 5px;
         background-color: $text-over;
         box-shadow: 0 4px 7px 0 $text-over, 0 3px 10px 0 $text-over;
+        }
     }
     
     .card-content {

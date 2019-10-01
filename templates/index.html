@@ -18,8 +18,13 @@
     {% for i in range(1, length+1) %}
         {% if i == page_num %}
         <li class="active"><a href="{{ movies.current_url }}">{{ i }}</a></li>
-        {% else %}
-        <li class="waves-effect"><a href="{{ movies.page_url }}">{{ i }}</a></li>
+        <!-- TODO: MAKE PAGENUMBER BUTTON URLS -->
+            {% else %}
+            {% if i > page_num %}
+                <li class="waves-effect"><a href="{{ movies.page_up_url }}">{{ i }}</a></li>
+            {% elif i < page_num %}
+                <li class="waves-effect"><a href="{{ movies.page_down_url }}">{{ i }}</a></li>
+            {% endif %}
         {% endif %}
     {% endfor %}
     <li class="waves-effect"><a href="{{ movies.next_url }}"><i class="material-icons">chevron_right</i></a></li>

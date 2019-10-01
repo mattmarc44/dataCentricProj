@@ -1,7 +1,8 @@
 import os
 from flask import Flask, redirect, render_template, url_for, request, session, jsonify
-from flask_pymongo import PyMongo
+from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
+import math
 
 app = Flask(__name__)
 db_user = os.environ.get('DB_USER')
@@ -17,23 +18,25 @@ mongo = PyMongo(app)
 #Gets a list of movies and returns them on the homepage
 def get_movies():
     limit = int(request.args.get('limit', 5))
-    offset = int(request.args.get('offset', 1))
+    offset = int(request.args.get('offset', 0))
     page_num = int(request.args.get('page_num', 1))
-    #get offset with ability to be negative(for going back multiple pages)
-    jump = int(request.args.get('offset', 1))
+    jump = int(request.args.get('jump', 1))
 
     #set defaults to avoid bad url's being made
     if limit < 1:
         limit = 5
-    if offset < 1:
-        offset = 1
+    if offset < 0:
+        offset = 0
+    if page_num < 1:
+        page_num = 1
 
-    starting_id = mongo.db.movies.find()
+    starting_id = mongo.db.movies.find().sort('_id', pymongo.ASCENDING)
     last_id = starting_id[offset]['_id']
 
-    movies = mongo.db.movies.find({'_id': {'$gte': last_id}}).limit(limit)
+    movies = mongo.db.movies.find({'_id': {'$gte': last_id}}).sort('_id', pymongo.ASCENDING).limit(limit)
     entries = mongo.db.movies.find().count()
-    length = entries / limit
+    length_float = float(entries) / float(limit)
+    length = int(math.ceil(length_float))
 
     output = []
     for i in movies:
@@ -53,9 +56,13 @@ def get_movies():
     next_url = '/?limit=' + str(limit) + '&offset=' + str(offset + limit) + '&page_num=' + str(page_num + 1)
     prev_url = '/?limit=' + str(limit) + '&offset=' + str(offset - limit) + '&page_num=' + str(page_num - 1)
     current_url = '/?limit=' + str(limit) + '&offset=' + str(offset) + '&page_num=' + str(page_num)
-    page_url = '/?limit=' + str(limit) + '&offset=' + str(offset + (limit*jump)) + '&page_num=' + str(page_num + jump)
+    # incomplete logic for jumping multiple pages, need to find a way to get amount of pages to jump relative
+    # to the page the client is on. for ex. if on page 3 and clicks on one, how to get that 2 jump var
+    page_up_url = '/?limit=' + str(limit) + '&offset=' + str(offset + (limit*jump)) + '&page_num=' + str(page_num + jump)
+    page_down_url = '/?limit=' + str(limit) + '&offset=' + str(offset - (limit*jump)) + '&page_num=' + str(page_num - jump)
 
-    result = {'result': output, 'next_url': next_url, 'prev_url': prev_url, 'current_url': current_url, 'page_url': page_url}
+
+    result = {'result': output, 'next_url': next_url, 'prev_url': prev_url, 'current_url': current_url, 'page_up_url': page_up_url, 'page_down_url': page_down_url}
     return render_template('index.html', movies=result, length=length, page_num=page_num, page_title='Home')
 
 

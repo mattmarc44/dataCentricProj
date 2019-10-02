@@ -6,8 +6,10 @@
 
 .card {
     .card-image {
-        max-height: 25rem;
+        max-height: 240px;
+        min-height: 240px;
         overflow: hidden;
+        background-color: $dark-col;
 
         .card-title {
         color: $off-white;
@@ -23,6 +25,9 @@
         background-color: $primary-col;
         color: $secondary-col;
         border-radius: 0;
+        min-height: 240px;
+        max-height: 240px;
+        overflow: hidden;
 
         p{
             font-size: 1.4rem

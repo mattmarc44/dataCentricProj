@@ -100,8 +100,10 @@ footer a:hover {
 }
 
 .card .card-image {
-  max-height: 25rem;
+  max-height: 240px;
+  min-height: 240px;
   overflow: hidden;
+  background-color: #090000;
 }
 
 .card .card-image .card-title {
@@ -118,6 +120,9 @@ footer a:hover {
   background-color: #31040c;
   color: #e3af0b;
   border-radius: 0;
+  min-height: 240px;
+  max-height: 240px;
+  overflow: hidden;
 }
 
 .card .card-content p {

@@ -17,7 +17,7 @@ mongo = PyMongo(app)
 @app.route('/get_movies')
 #Gets a list of movies and returns them on the homepage
 def get_movies():
-    limit = int(request.args.get('limit', 5))
+    limit = int(request.args.get('limit', 6))
     offset = int(request.args.get('offset', 0))
     page_num = int(request.args.get('page_num', 1))
     jump = int(request.args.get('jump', 1))

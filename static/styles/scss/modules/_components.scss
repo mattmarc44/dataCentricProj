@@ -16,6 +16,9 @@ form {
     input[type=range] {
         border: 1px solid $secondary-col;
     }
+    .range-field {
+        margin-left: 35px;
+    }
 }
 
 .form-row {

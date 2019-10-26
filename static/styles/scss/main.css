@@ -241,6 +241,10 @@ form input[type=range] {
   border: 1px solid #e3af0b;
 }
 
+form .range-field {
+  margin-left: 35px;
+}
+
 .form-row {
   border: solid 10px #987506;
   border-radius: 10px;

@@ -5,4 +5,25 @@
     top: 55%;
     color: black;
     text-shadow: 0 0 8px black;
+    @include desktop {
+        left: 25%;
+    }
+}
+
+.btn-large {
+    height: 66px;
+    line-height: 10px;
+    font-size: 20px;
+    padding: 2rem;
+    border-radius: 6px;
+}
+
+.btn:hover, .btn-large:hover, .btn-small:hover {
+    background-color: darken($secondary-col, 10%);
+}
+
+div.col > ul.pagination li a:hover {
+    color: lighten($secondary-col, 10%);
+    font-weight: 600;
+    transition: all .5s;
 }

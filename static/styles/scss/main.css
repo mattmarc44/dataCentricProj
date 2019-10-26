@@ -28,8 +28,25 @@ main {
 
 nav {
   background-color: #31040c;
-  height: 60px;
-  line-height: 60px;
+  height: 72px;
+  line-height: 72px;
+}
+
+nav img {
+  height: auto;
+  width: auto;
+  max-height: 80px;
+  max-width: 200px;
+}
+
+@media (min-width: 1024px) {
+  nav img {
+    max-height: 90px;
+    max-width: 220px;
+    position: relative;
+    left: 20px;
+    top: 10px;
+  }
 }
 
 nav a {
@@ -65,6 +82,15 @@ nav a {
   border-bottom-right-radius: 20px;
 }
 
+@media (min-width: 1024px) {
+  .slate-img .slate-content {
+    left: 55%;
+    top: 20%;
+    border-left: solid 5px #e3af0b;
+    border-top-left-radius: 20px;
+  }
+}
+
 .slate-img h1 {
   margin: .4rem 4rem;
   border-radius: 10px;
@@ -92,6 +118,11 @@ footer a {
 
 footer a:hover {
   color: #e3af0b;
+}
+
+footer img {
+  width: auto;
+  height: 80px;
 }
 
 .hoverable:hover {
@@ -141,14 +172,6 @@ footer a:hover {
   margin: 2rem 0 1rem 0;
 }
 
-.banner {
-  margin: 0;
-  color: #e3af0b;
-  background: #31040c;
-  font-family: "PT Serif", "Arial";
-  padding: 0.5rem 1.4rem;
-}
-
 .home-btn {
   position: relative;
   left: 50%;
@@ -158,12 +181,44 @@ footer a:hover {
   text-shadow: 0 0 8px black;
 }
 
+@media (min-width: 1024px) {
+  .home-btn {
+    left: 25%;
+  }
+}
+
+.btn-large {
+  height: 66px;
+  line-height: 10px;
+  font-size: 20px;
+  padding: 2rem;
+  border-radius: 6px;
+}
+
+.btn:hover, .btn-large:hover, .btn-small:hover {
+  background-color: #b28a09;
+}
+
+div.col > ul.pagination li a:hover {
+  color: #f5c52c;
+  font-weight: 600;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
 form {
   background-color: #e4dcda;
+  border: 5px solid #b28a09;
+  border-radius: 3%;
+}
+
+form .row {
+  padding: 1rem;
 }
 
 form .input-field > label {
   color: black;
+  font-size: 1.1rem;
 }
 
 form input[type=text]::-webkit-input-placeholder {
@@ -184,6 +239,12 @@ form input[type=text]::placeholder {
 
 form input[type=range] {
   border: 1px solid #e3af0b;
+}
+
+.form-row {
+  border: solid 10px #987506;
+  border-radius: 10px;
+  background-color: #977506;
 }
 
 .movie-container {
@@ -213,16 +274,16 @@ div.col > ul.pagination {
   padding: 1.4rem 0 0 0;
 }
 
-div.col > ul.pagination li {
-  height: 40px;
-}
-
 div.col > ul.pagination li a {
   color: #e3af0b;
 }
 
 div.col > ul.pagination li.active {
   padding: .5rem;
+}
+
+div.col > ul.pagination li.active a {
+  line-height: 15px;
 }
 
 h2 {
@@ -233,5 +294,16 @@ h2 {
 
 strong {
   font-weight: 900;
+}
+
+.banner {
+  margin: 0;
+  color: #e3af0b;
+  background: #31040c;
+  font-family: "PT Serif", "Arial";
+  font-weight: 600;
+  padding: 1.4rem;
+  border-bottom: 5px solid;
+  border-radius: 10%;
 }
 /*# sourceMappingURL=main.css.map */

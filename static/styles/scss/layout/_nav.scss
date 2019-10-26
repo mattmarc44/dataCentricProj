@@ -1,8 +1,21 @@
 nav {
     background-color: $primary-col;
-    height: 60px;
-    line-height: 60px;
+    height: 72px;
+    line-height: 72px;
 
+    img {
+        height: auto;
+        width: auto;
+        max-height: 80px;
+        max-width: 200px;
+        @include desktop {
+        max-height: 90px;
+        max-width: 220px;
+        position: relative;
+        left: 20px;
+        top: 10px;
+        }
+    }
     a {
         color: $secondary-col;
     }

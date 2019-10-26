@@ -1,9 +1,14 @@
 //forms
 form {
     background-color: $off-white;
-
+    border: 5px solid darken($secondary-col, 10%);
+    border-radius: 3%;
+    .row {
+        padding: 1rem;
+    }
     .input-field>label {
         color:black;
+        font-size: 1.1rem;
     }
     input[type=text]::placeholder {
         color:$light-col;
@@ -11,6 +16,12 @@ form {
     input[type=range] {
         border: 1px solid $secondary-col;
     }
+}
+
+.form-row {
+    border: solid 10px #987506;
+    border-radius: 10px;
+    background-color: #977506;
 }
 
 //movie pages
@@ -39,14 +50,13 @@ form {
 div.col>ul.pagination {
     padding: 1.4rem 0 0 0;
 
-    li {
-        height: 40px;
-
-        a {
+    li a {
             color: $secondary-col;
         }
-    }
     li.active {
             padding: .5rem;
+            a{
+                line-height: 15px;
+            }
     }
 }

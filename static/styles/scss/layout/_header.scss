@@ -12,6 +12,12 @@
         position: absolute;
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
+        @include desktop {
+            left: 55%;
+            top: 20%;
+            border-left: solid 5px $secondary-col;
+            border-top-left-radius: 20px;
+        }
     }
     h1 {
         margin: .4rem 4rem;

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{{page_title}}</title>
+  <title>Tapes | {{page_title}}</title>
 
   <!--fonts-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -24,7 +24,7 @@
 
   <nav>
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Tapes</a>
+      <a href="{{ url_for('get_movies') }}" class="brand-logo"><img src="{{ url_for('static', filename='images/logo-nav.png') }}" alt="brand logo"></a>
       <a href="#" data-target="burger" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="{{ url_for('get_movies') }}">Home</a></li>
@@ -50,7 +50,7 @@
         <div class="container">
           <div class="row center">
             <div class="col l6 s12">
-              <h5 class="grey-text text-lighten-2">Tapes</h5>
+                <a href="{{ url_for('get_movies') }}" class="brand-logo"><img src="{{ url_for('static', filename='images/logo-nav.png') }}" alt="brand logo"></a>
               <p class="grey-text text-lighten-2">Keep up to date with whats happening in our world!</p>
               <ul class="list-one">
                   <li><a href="https://www.linkedin.com/in/matthew-titmuss-4a5480160/"><i class="material-icons">account_circle</i></a></li>

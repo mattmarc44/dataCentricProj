@@ -83,7 +83,7 @@ def edit_movie(movie_id):
     selected_movie = mongo.db.movies.find_one({"_id": ObjectId(movie_id)})
     all_genres = mongo.db.genres.find()
     genre_list = [genre for genre in all_genres]
-    return render_template('edit_movie.html', movie=selected_movie, genres=genre_list)
+    return render_template('edit_movie.html', movie=selected_movie, genres=genre_list, page_title='Edit Movie')
 
 @app.route('/update_movie/<movie_id>', methods=['POST'])
 #the route  for form submission on edit_movie
@@ -111,7 +111,7 @@ def delete_movie(movie_id):
 #returns a page specific for a chosen movie
 def movie_page(movie_id):
     selected_movie = mongo.db.movies.find_one({"_id": ObjectId(movie_id)})
-    return render_template('movie_page.html', movie=selected_movie)
+    return render_template('movie_page.html', movie=selected_movie, page_title='Movie Page')
 
 
 #GENRE
@@ -119,12 +119,12 @@ def movie_page(movie_id):
 @app.route('/get_genres')
 #gets genre list
 def get_genres():
-    return render_template('genres.html', genres=mongo.db.genres.find())
+    return render_template('genres.html', genres=mongo.db.genres.find(), page_title='Genres')
 
 @app.route('/search/<search_id>')
 #get page of films filtered by a selection
 def search(search_id):
     selected = mongo.db.movies.find({"genre": search_id})
-    return render_template('search_result.html', movies=selected)
+    return render_template('search_result.html', movies=selected, page_title='Search Results')
 
 app.run(host=os.getenv('IP', "0.0.0.0"), port=int(os.getenv('PORT', "5000")), debug=True)

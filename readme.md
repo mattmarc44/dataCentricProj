@@ -52,63 +52,98 @@ NOTE: I would like to expand on wireframes in the future. Invest in proper wiref
 
 ## Features
 
-In this section, you should go over the different parts of your project, and describe each in a sentence or so.
- 
-### Existing Features
-- Feature 1 - allows users X to achieve Y, by having them fill out Z
-- ...
+- Genre Selection: filters options by routing. getting the selected value and matching all films in the database with the selected genre.
 
-For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
+- Star rating: The star rating takes a string value from the database. Then using Jquery and a loop inserts a materialise star icon the approopriate amount of times. This solution appeals to me because of simplicity and a chance to practice earlier things I've learnt. (ratings.js)
 
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
+- Movie pages: All movie pages use routing to get the correct entry and then jinja templating to generate it's relevent page.
+
+- CRUD: all implemented via flask routing and mongo atlas. On update movie, returns the same form from add movie but with fields filledd in. Similar to course.
 
 ### Features Left to Implement
-- Another feature idea
+- Search function.
+- Better way to store images.
+- Comments
+- group rating
 
 ## Technologies Used
 
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
-
 - [JQuery](https://jquery.com)
     - The project uses **JQuery** to simplify DOM manipulation.
-
+- [Sass](https://sass-lang.com/)
+    - Sass is used for styling as I find its use of mixins, nesting and ways if creating mediaqueries a huge asset.
+- [Flask/Jinja](http://flask.palletsprojects.com/en/1.1.x/, https://jinja.palletsprojects.com/en/2.10.x/)
+    - Flask and jinja were used for back-end and templating.
+- [Python](https://www.python.org/)
+    - Python was used as the main language.
+- [MongoDB](https://www.mongodb.com/)
+    - Used for database as taught.
+- [Materialize](https://materializecss.com/)
+    -I decided to use materialize as the front end framework as with sass I could change it's main color scheme to fit mine by quickly changing its sass variables. This minimised overriding to many of its classes. Also many other helpers. like its grid helps.
+- [unittest](https://docs.python.org/2/library/unittest.html)
+    - unittest was used for testing. I saw this as the best option available.
 
 ## Testing
 
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
+Automated testing is conducted through python unittest. Although this is still quite simple as I find there to be a huge gap between any simple tutorials and building a proper project. I will continue to look into this and develop.
 
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
+It mostly relies on setting up certain routing ooptions and verifying the result.
+naturally, this would leave room for failures with continued changes. As such, I have manually tested also. 
 
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
+All CRUD functionality was tested in app as well and then compared to mongodb for any unexpected errors or differences. 
 
-1. Contact form:
-    1. Go to the "Contact Us" page
-    2. Try to submit the empty form and verify that an error message about the required fields appears
-    3. Try to submit the form with an invalid email address and verify that a relevant error message appears
-    4. Try to submit the form with all inputs valid and verify that a success message appears.
+1. Home page:
+    1. Go to the home page.
+    2. Check list populates and layout presentable on all screen sizes.
+    3. Ensure each card displays with its relevent information with no duplicates or unexpected errors. 
+    4. Ensure images display on cards and if no image is supplyed then the default placeholder image.
+    5. Check pagination links work in both directions. Top and bottom links.
+    6. Card buttons are redirecting to correct pages.
 
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
+2. Movie pages:
+    1. Go to movie page.
+    2. Check information is displayed correctly on all screen sizes and is correct relevent to the selection made.
+    3. Check star ratings are displaying.
+    4. Check edit button directs you to a prepopulated form with this films info.
+    5. Check delete function redirects you to the homepage. That movie should no longer display. Confirm by using mongo dashboard to inspect collection.
 
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
+3. Add/Update pages:
+    1. Go to add/update page.
+    2. Check form displays correctly(with right data if applicable).
+    3. Check form validates entries.
+    4. Check slider and calender section works.
+    5. Check invalid forms don't submit. Check this with several diferent variations.
+    6. Check form submits when necessary entries are filled. Check against mongoDB dashboard for errors. Check this with several diferent variations.
+    7. Ensure redirects to home page where the relevent info should now display.
 
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
+4.  General:
+    1. check all break points function and displays on different devices on dev tools
+    2. rerun previous tests on sizes mobile/tablet.
+    3. rerun tests from deployed heroku app.
+    4. Send to various family and friends to use. get feedback on anythong broken, feneral feedback.
+
+ - text was contrast checked
+ https://webaim.org/resources/contrastchecker/
+ - html and css validated.
+
+
+- issues: 
+    -had trouble trying to implement a file upload mechanism to the forms. It would crash when clicked. I think its something to do with materialise as it worked as a standalone item, although I abondoned it before I could use it with the backend, instead choosing to link images via URL's. (there is a solution using base64 and mongo with the form input I believe)
 
 ## Deployment
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
+I decided to use heroku to deploy this project and it looks to my github master for the most current version of the site.
 
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-- Different values for environment variables (Heroku Config Vars)?
-- Different configuration files?
-- Separate git branch?
 
-In addition, if it is not obvious, you should also describe how to run your code locally.
 
 
 ## Credits
 
 ### Content
-- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
+references for movie descriptions: 
+https://www.rottentomatoes.com/m/shaun_of_the_dead
+https://www.rottentomatoes.com/m/hot_fuzz
+
 
 ### photo  creds:
 Photo by Amir Ghoorchiani from Pexels
@@ -120,17 +155,3 @@ Photo by Donald Tong from Pexels
 
 - pagination inspired by:https://www.youtube.com/watch?v=Lnt6JqtzM7I
 - flask tests inspired by discover flask series: https://www.youtube.com/watch?v=1aHNs1aEATg
-
-references for movie descriptions 
-https://www.rottentomatoes.com/m/shaun_of_the_dead
-https://www.rottentomatoes.com/m/hot_fuzz
-
-
-issues: 
--had trouble trying to implement a file upload mechanism to the forms. It would crash when clicked. I think its something to do with materialise as it worked as a standalone item, although I abondoned it before I could use it with the backend, instead choosing to link images via URL's.
-
-
- text was contrast checked
- https://webaim.org/resources/contrastchecker/
-
- 

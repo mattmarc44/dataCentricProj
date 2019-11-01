@@ -310,4 +310,8 @@ strong {
   border-bottom: 5px solid;
   border-radius: 10%;
 }
+
+.search-error {
+  color: #e3af0b;
+}
 /*# sourceMappingURL=main.css.map */

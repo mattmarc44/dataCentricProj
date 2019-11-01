@@ -40,18 +40,32 @@ def get_movies():
 
     output = []
     for i in movies:
-        output.append({
-            '_id': i['_id'],
-            'movie_name': i['movie_name'],
-            'genre': i['genre'],
-            'short_description': i['short_description'],
-            'release_date': i['release_date'],
-            'rating': i['rating'],
-            'director': i['director'],
-            'run_time': i['run_time'],
-            'full_description': i['full_description'],
-            'picture': i['picture']
-            })
+        try:
+            output.append({
+                '_id': i['_id'],
+                'movie_name': i['movie_name'],
+                'genre': i['genre'],
+                'short_description': i['short_description'],
+                'release_date': i['release_date'],
+                'rating': i['rating'],
+                'director': i['director'],
+                'run_time': i['run_time'],
+                'full_description': i['full_description'],
+                'picture': i['picture']
+                })
+        except:
+            output.append({
+                '_id': i['_id'],
+                'movie_name': i['movie_name'],
+                'genre': i['genre'],
+                'short_description': i['short_description'],
+                'release_date': i['release_date'],
+                'rating': i['rating'],
+                'director': i['director'],
+                'run_time': i['run_time'],
+                'full_description': i['full_description']
+                })
+                
 
     next_url = '/?limit=' + str(limit) + '&offset=' + str(offset + limit) + '&page_num=' + str(page_num + 1)
     prev_url = '/?limit=' + str(limit) + '&offset=' + str(offset - limit) + '&page_num=' + str(page_num - 1)
@@ -123,8 +137,18 @@ def get_genres():
 
 @app.route('/search/<search_id>')
 #get page of films filtered by a selection
-def search(search_id):
+def genre_search(search_id):
     selected = mongo.db.movies.find({"genre": search_id})
     return render_template('search_result.html', movies=selected, page_title='Search Results')
+
+
+#SEARCH QUERY
+@app.route('/title_search', methods=['GET'])
+#searches for a query amongst titles
+def title_search():
+    query = request.args.get('search')
+    print(query)
+    searched = mongo.db.movies.find({'movie_name': query})
+    return render_template('search_result.html', movies=searched, query=query, page_title='Search Results')
 
 app.run(host=os.getenv('IP', "0.0.0.0"), port=int(os.getenv('PORT', "5000")), debug=True)

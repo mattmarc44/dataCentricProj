@@ -18,6 +18,11 @@ strong{
     border-radius: 10%;
 }
 
-.search-error {
+.search {
     color: $secondary-col;
+    background-color: $primary-col;
+    margin: 2rem 1rem;
+    padding: 1rem;
+    font-size: 1.1rem;
+    border-radius: 10px;
 }

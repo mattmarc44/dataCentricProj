@@ -53,6 +53,14 @@ nav a {
   color: #e3af0b;
 }
 
+nav form {
+  background-color: #31040c;
+}
+
+nav .nav-wrapper .input-field input[type=search] {
+  height: 62px !important;
+}
+
 .sidenav {
   padding-top: 40px;
   background-color: #e3af0b;
@@ -66,6 +74,24 @@ nav a {
   border-left: 5px solid #31040c;
   border-radius: 5px;
   color: #31040c;
+}
+
+.sidenav form {
+  padding: 0 28px;
+  margin: 16px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-left: 5px solid #31040c;
+  border-radius: 5px;
+  color: #31040c;
+  background-color: #e3af0b;
+  border: none;
+  border-left: 5px solid #31040c;
+  border-radius: 5px;
+}
+
+.sidenav form input[type=search]:not(.browser-default) {
+  border-bottom: none;
 }
 
 .slate-img {
@@ -311,7 +337,12 @@ strong {
   border-radius: 10%;
 }
 
-.search-error {
+.search {
   color: #e3af0b;
+  background-color: #31040c;
+  margin: 2rem 1rem;
+  padding: 1rem;
+  font-size: 1.1rem;
+  border-radius: 10px;
 }
 /*# sourceMappingURL=main.css.map */

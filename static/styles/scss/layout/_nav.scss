@@ -19,18 +19,29 @@ nav {
     a {
         color: $secondary-col;
     }
+    form{
+        background-color: $primary-col;
+    }
+    .nav-wrapper .input-field input[type=search] {
+        height: 62px!important;
+    }
 }
 .sidenav{
     padding-top: 40px;
     background-color: $secondary-col;
 
     li>a {
-        padding: 0 28px;
-        margin: 16px;
-        font-size: 1.2rem;
-        font-weight: 600;
+        @include side-nav-style;
+    }
+    form{
+        @include side-nav-style;
+        background-color: $secondary-col;
+        border: none;
         border-left: 5px solid $primary-col;
         border-radius: 5px;
-        color: $primary-col;
+
+        input[type=search]:not(.browser-default){
+            border-bottom: none;
+        }
     }
 }

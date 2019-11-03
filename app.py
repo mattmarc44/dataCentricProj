@@ -139,7 +139,7 @@ def get_genres():
 #get page of films filtered by a selection
 def genre_search(search_id):
     selected = mongo.db.movies.find({"genre": search_id})
-    return render_template('search_result.html', movies=selected, page_title='Search Results')
+    return render_template('search_result.html', movies=selected, query=search_id, page_title='Search Results')
 
 
 #SEARCH QUERY
@@ -147,7 +147,6 @@ def genre_search(search_id):
 #searches for a query amongst titles
 def title_search():
     query = request.args.get('search')
-    print(query)
     searched = mongo.db.movies.find({'movie_name': query})
     return render_template('search_result.html', movies=searched, query=query, page_title='Search Results')
 

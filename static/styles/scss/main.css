@@ -279,6 +279,8 @@ form .range-field {
 
 .movie-container {
   background-color: #490612;
+  margin-top: 15px;
+  border-radius: 5px;
 }
 
 .movie-container p {
@@ -300,6 +302,18 @@ form .range-field {
   margin-bottom: 1.2rem;
 }
 
+.movie-container .options {
+  cursor: pointer;
+}
+
+.movie-container .options p {
+  font-size: 1.2rem;
+}
+
+.movie-container .options i {
+  font-size: 1rem;
+}
+
 div.col > ul.pagination {
   padding: 1.4rem 0 0 0;
 }
@@ -319,7 +333,8 @@ div.col > ul.pagination li.active a {
 h2 {
   color: #e3af0b;
   font-size: 2rem;
-  margin-left: 1.2rem;
+  margin: 1.2rem;
+  font-weight: 600;
 }
 
 strong {

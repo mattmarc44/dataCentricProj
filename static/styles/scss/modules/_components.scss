@@ -30,6 +30,8 @@ form {
 //movie pages
 .movie-container {
     background-color:$tert-col;
+    margin-top: 15px;
+    border-radius: 5px;
 
     p{
         background-color: $primary-col;
@@ -46,6 +48,16 @@ form {
     }
     a{
         margin-bottom: 1.2rem;
+    }
+    .options{
+        cursor: pointer;
+
+        p{
+            font-size:1.2rem;
+        }
+        i {
+            font-size: 1rem;
+        }
     }
 }
 

@@ -5,6 +5,13 @@
     -o-background-size: cover;
     background-size: cover;
     height: 50vh;
+    @include small-screen {
+        height: 70vh;
+    }
+    @include extra-small-screen {
+        background: none;
+        height: 50vh;
+    }
 
     .slate-content{
         background-color: $primary-col;

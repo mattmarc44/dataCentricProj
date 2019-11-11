@@ -1,9 +1,23 @@
 //shropp technique: https://css-tricks.com/approaches-media-queries-sass/
 // for media queries
 $desktop-width: 1024px;
+$small-width: 600px;
+$extra-small-width: 330px;
 
 @mixin desktop {
   @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+@mixin small-screen {
+  @media (min-width: #{$extra-small-width}) and (max-width: #{$small-width}) {
+    @content;
+  }
+}
+
+@mixin extra-small-screen {
+  @media (max-width: #{$extra-small-width}) {
     @content;
   }
 }

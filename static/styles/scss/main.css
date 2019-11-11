@@ -100,6 +100,19 @@ nav .nav-wrapper .input-field input[type=search] {
   height: 50vh;
 }
 
+@media (min-width: 330px) and (max-width: 600px) {
+  .slate-img {
+    height: 70vh;
+  }
+}
+
+@media (max-width: 330px) {
+  .slate-img {
+    background: none;
+    height: 50vh;
+  }
+}
+
 .slate-img .slate-content {
   background-color: #31040c;
   color: #e4dcda;
@@ -271,12 +284,6 @@ form .range-field {
   margin-left: 35px;
 }
 
-.form-row {
-  border: solid 10px #987506;
-  border-radius: 10px;
-  background-color: #977506;
-}
-
 .movie-container {
   background-color: #490612;
   margin-top: 15px;
@@ -314,6 +321,16 @@ form .range-field {
   font-size: 1rem;
 }
 
+.movie-container #star-rating i {
+  font-size: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .movie-container #star-rating i {
+    font-size: 4rem;
+  }
+}
+
 div.col > ul.pagination {
   padding: 1.4rem 0 0 0;
 }
@@ -332,7 +349,7 @@ div.col > ul.pagination li.active a {
 
 h2 {
   color: #e3af0b;
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin: 1.2rem;
   font-weight: 600;
 }

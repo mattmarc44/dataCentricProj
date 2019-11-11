@@ -21,11 +21,6 @@ form {
     }
 }
 
-.form-row {
-    border: solid 10px #987506;
-    border-radius: 10px;
-    background-color: #977506;
-}
 
 //movie pages
 .movie-container {
@@ -57,6 +52,12 @@ form {
         }
         i {
             font-size: 1rem;
+        }
+    }
+    #star-rating i {
+        font-size: 3rem;
+        @include desktop {
+            font-size:4rem;
         }
     }
 }

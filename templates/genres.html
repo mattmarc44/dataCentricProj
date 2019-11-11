@@ -10,7 +10,7 @@
                         <span class="card-title">{{item.genre}}</span>
                     </div>
                     <div class="card-action">
-                        <a href="{{ url_for('search', search_id=item.genre) }}">Search {{item.genre}}</a>
+                        <a href="{{ url_for('genre_search', search_id=item.genre) }}">Search {{item.genre}}</a>
                     </div>
                 </div>
             </div>

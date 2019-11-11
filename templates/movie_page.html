@@ -4,27 +4,25 @@
 
 <div class="container movie-container">
     <div class="row">
-        <div class="col s12">
+        <div class="col s12 l10 offset-l1">
             <h2>{{movie.movie_name}}</h2>
         </div>
     </div>
     <div class="row">
-            <div class="col s12">
+            <div class="col s12 l10 offset-l1">
                     <h4>Genre</h4>
                     <p><strong>{{movie.genre}}</strong></p>
             </div>
     </div>
     <div class="row">
-        <div class="col s12 m4">
-                {% if movie.picture %}
+        <div class="col s12 m10 offset-m1">
+                <h4>Plot</h4>
+            <p>{% if movie.picture %}
                 <img class="responsive-img" src="{{ movie.picture }}" alt="movie image">
                 {% else %}
                 <img class="responsive-img" src="../static/images/test.svg" alt="movie image">
                 {% endif %}
-        </div>
-        <div class="col s12 m8">
-                <h4>Plot</h4>
-            <p>{{movie.full_description}}</p>
+                {{movie.full_description}}</p>
         </div>
     </div>
     <div class="row">
@@ -46,10 +44,16 @@
         <div class="col s12"><p class="options center">click here for more options<i class="material-icons">arrow_drop_down</i></p></div>
     </div>
     <div class="row movie-buttons">
-        <div class="col s6 center">
+        <div class="col s6 center hide-on-med-and-up">
+            <a href="{{ url_for('edit_movie', movie_id=movie._id) }}" class="waves-effect waves-light btn"><i class="material-icons right">create</i>Edit</a>
+        </div>
+        <div class="col s6 center hide-on-med-and-up">
+            <a href="{{ url_for('delete_movie', movie_id=movie._id) }}" class="waves-effect waves-light btn"><i class="material-icons right">remove_circle</i>Delete</a>
+        </div>
+        <div class="col s6 center hide-on-small-only">
             <a href="{{ url_for('edit_movie', movie_id=movie._id) }}" class="waves-effect waves-light btn-large"><i class="material-icons right">create</i>Edit</a>
         </div>
-        <div class="col s6 center">
+        <div class="col s6 center hide-on-small-only">
             <a href="{{ url_for('delete_movie', movie_id=movie._id) }}" class="waves-effect waves-light btn-large"><i class="material-icons right">remove_circle</i>Delete</a>
         </div>
     </div>

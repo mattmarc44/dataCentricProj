@@ -6,7 +6,7 @@ function getRating() {
     var rating = '';
     //it adds a materialise icon for the appropriate amount into the var rating 
     for (n; n > 0; n--) {
-        rating += '<i class="medium material-icons">star</i>';
+        rating += '<i class="material-icons">star</i>';
     }
     //and replaces the original value with stars!
     $("#star-rating").html(rating);

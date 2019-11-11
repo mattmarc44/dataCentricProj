@@ -135,7 +135,7 @@ def movie_page(movie_id):
 def get_genres():
     return render_template('genres.html', genres=mongo.db.genres.find(), page_title='Genres')
 
-@app.route('/search/<search_id>')
+@app.route('/genre_search/<search_id>')
 #get page of films filtered by a selection
 def genre_search(search_id):
     selected = mongo.db.movies.find({"genre": search_id})
